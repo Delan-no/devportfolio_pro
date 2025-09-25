@@ -2,40 +2,42 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+import { useLanguage } from '../../../contexts/LanguageContext';
 
 const QuickLinksSection = () => {
+  const { t } = useLanguage();
   const quickLinks = [
     {
-      title: "Mes Projets",
+      title: t('navigation.projects'),
       description: "Découvrez mes réalisations et projets les plus récents avec détails techniques et démonstrations.",
       icon: "FolderOpen",
       color: "bg-blue-500",
       route: "/projects-gallery",
-      cta: "Voir les projets"
+      cta: t('projects.viewProject')
     },
     {
-      title: "Mon Expérience",
-      description: "Parcourez mon parcours professionnel et les missions que j\'ai réalisées au fil des années.",
+      title: t('navigation.experience'),
+      description: "Parcourez mon parcours professionnel et les missions que j'ai réalisées au fil des années.",
       icon: "Briefcase",
       color: "bg-emerald-500",
       route: "/professional-experience-timeline",
-      cta: "Voir l\'expérience"
+      cta: "Voir l'expérience"
     },
     {
-      title: "Blog Technique",
+      title: t('navigation.blog'),
       description: "Lisez mes articles sur les dernières technologies et bonnes pratiques de développement.",
       icon: "BookOpen",
       color: "bg-purple-500",
       route: "/technical-blog",
-      cta: "Lire le blog"
+      cta: t('blog.readMore')
     },
     {
-      title: "Me Contacter",
-      description: "Vous avez un projet ? Une question ? N\'hésitez pas à me contacter pour en discuter.",
+      title: t('navigation.contact'),
+      description: "Vous avez un projet ? Une question ? N'hésitez pas à me contacter pour en discuter.",
       icon: "Mail",
       color: "bg-orange-500",
       route: "/contact-form",
-      cta: "Me contacter"
+      cta: t('hero.contactMe')
     }
   ];
 

@@ -2,13 +2,16 @@ import React from 'react';
 import Image from '../../../components/AppImage';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+import { useLanguage } from '../../../contexts/LanguageContext';
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+  
   const handleDownloadCV = () => {
     // Mock CV download functionality
     const link = document.createElement('a');
-    link.href = '/assets/cv/alexandre-martin-cv.pdf';
-    link.download = 'Alexandre-Martin-CV.pdf';
+    link.href = '/assets/cv/delanno-kotcho-cv.pdf';
+    link.download = 'Delanno-Kotcho-CV.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -21,15 +24,13 @@ const HeroSection = () => {
         <div className="text-center lg:text-left space-y-8">
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
-              Délanno KOTCHO
+              {t('hero.name')}
             </h1>
             <p className="text-xl md:text-2xl text-blue-600 font-medium">
-              Développeur Fullstack Senior
+              {t('hero.title')}
             </p>
             <p className="text-lg text-slate-600 max-w-2xl leading-relaxed">
-              Passionné par la création d'applications web modernes et performantes, 
-              je transforme vos idées en solutions digitales innovantes avec 5 ans 
-              d'expérience en développement React, Node.js et technologies cloud.
+              {t('hero.description')}
             </p>
           </div>
 
@@ -43,7 +44,7 @@ const HeroSection = () => {
               onClick={handleDownloadCV}
               className="bg-blue-600 hover:bg-blue-700"
             >
-              Télécharger CV
+              {t('hero.downloadCV')}
             </Button>
             <Button 
               variant="outline" 
@@ -52,7 +53,7 @@ const HeroSection = () => {
               iconPosition="left"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Me Contacter
+              {t('hero.contactMe')}
             </Button>
           </div>
 

@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import Input from '../../../components/ui/Input';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+import { useLanguage } from '../../../contexts/LanguageContext';
 
 const ContactForm = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -34,29 +36,29 @@ const ContactForm = () => {
     const newErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Le nom est requis';
+      newErrors.name = t('contact.form.nameRequired');
     } else if (formData.name.trim().length < 2) {
-      newErrors.name = 'Le nom doit contenir au moins 2 caractères';
+      newErrors.name = t('contact.form.nameMinLength');
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'L\'email est requis';
+      newErrors.email = t('contact.form.emailRequired');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Format d\'email invalide';
+      newErrors.email = t('contact.form.emailInvalid');
     }
 
     if (!formData.subject.trim()) {
-      newErrors.subject = 'Le sujet est requis';
+      newErrors.subject = t('contact.form.subjectRequired');
     } else if (formData.subject.trim().length < 5) {
-      newErrors.subject = 'Le sujet doit contenir au moins 5 caractères';
+      newErrors.subject = t('contact.form.subjectMinLength');
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Le message est requis';
+      newErrors.message = t('contact.form.messageRequired');
     } else if (formData.message.trim().length < 20) {
-      newErrors.message = 'Le message doit contenir au moins 20 caractères';
+      newErrors.message = t('contact.form.messageMinLength');
     } else if (formData.message.trim().length > 1000) {
-      newErrors.message = 'Le message ne peut pas dépasser 1000 caractères';
+      newErrors.message = t('contact.form.messageMaxLength');
     }
 
     setErrors(newErrors);
@@ -85,7 +87,7 @@ const ContactForm = () => {
       });
     } catch (error) {
       setErrors({
-        submit: 'Une erreur est survenue lors de l\'envoi. Veuillez réessayer.'
+        submit: t('contact.form.submitError')
       });
     } finally {
       setIsSubmitting(false);
@@ -100,10 +102,10 @@ const ContactForm = () => {
             <Icon name="CheckCircle" size={32} className="text-success" />
           </div>
           <h3 className="text-xl font-semibold text-primary mb-2">
-            Message envoyé avec succès !
+            {t('contact.form.success')}
           </h3>
           <p className="text-text-secondary mb-6">
-            Merci pour votre message. Je vous répondrai dans les plus brefs délais, généralement sous 24h.
+            {t('contact.form.successMessage')}
           </p>
           <Button
             variant="outline"
@@ -111,7 +113,7 @@ const ContactForm = () => {
             iconName="ArrowLeft"
             iconPosition="left"
           >
-            Envoyer un autre message
+            {t('contact.form.sendAnother')}
           </Button>
         </div>
       </div>
@@ -122,20 +124,20 @@ const ContactForm = () => {
     <div className="bg-card rounded-xl p-8 border border-border">
       <div className="mb-6">
         <h2 className="text-2xl font-semibold text-primary mb-2">
-          Contactez-moi
+          {t('contact.title')}
         </h2>
         <p className="text-text-secondary">
-          Vous avez un projet en tête ? N'hésitez pas à me contacter pour discuter de vos besoins.
+          {t('contact.subtitle')}
         </p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input
-            label="Nom complet"
+            label={t('contact.form.name')}
             type="text"
             name="name"
-            placeholder="Votre nom"
+            placeholder={t('contact.form.namePlaceholder')}
             value={formData.name}
             onChange={handleInputChange}
             error={errors.name}
@@ -143,10 +145,10 @@ const ContactForm = () => {
           />
           
           <Input
-            label="Adresse email"
+            label={t('contact.form.email')}
             type="email"
             name="email"
-            placeholder="votre.email@exemple.com"
+            placeholder={t('contact.form.emailPlaceholder')}
             value={formData.email}
             onChange={handleInputChange}
             error={errors.email}
@@ -155,10 +157,10 @@ const ContactForm = () => {
         </div>
 
         <Input
-          label="Sujet"
+          label={t('contact.form.subject')}
           type="text"
           name="subject"
-          placeholder="Objet de votre message"
+          placeholder={t('contact.form.subjectPlaceholder')}
           value={formData.subject}
           onChange={handleInputChange}
           error={errors.subject}
@@ -167,12 +169,12 @@ const ContactForm = () => {
 
         <div>
           <label className="block text-sm font-medium text-primary mb-2">
-            Message <span className="text-error">*</span>
+            {t('contact.form.message')} <span className="text-error">*</span>
           </label>
           <textarea
             name="message"
             rows={6}
-            placeholder="Décrivez votre projet ou votre demande..."
+            placeholder={t('contact.form.messagePlaceholder')}
             value={formData.message}
             onChange={handleInputChange}
             className={`w-full px-3 py-2 border rounded-lg resize-none transition-smooth focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent ${
@@ -185,7 +187,7 @@ const ContactForm = () => {
             <p className="mt-1 text-sm text-error">{errors.message}</p>
           )}
           <p className="mt-1 text-xs text-text-secondary">
-            {formData.message.length}/1000 caractères
+            {formData.message.length}/1000 {t('contact.form.charactersCount')}
           </p>
         </div>
 
@@ -208,7 +210,7 @@ const ContactForm = () => {
           iconPosition="right"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Envoi en cours...' : 'Envoyer le message'}
+          {isSubmitting ? t('contact.form.sending') : t('contact.form.send')}
         </Button>
       </form>
 
@@ -217,10 +219,10 @@ const ContactForm = () => {
           <Icon name="Info" size={16} className="text-accent flex-shrink-0 mt-0.5" />
           <div className="text-sm text-text-secondary">
             <p className="mb-1">
-              <strong>Temps de réponse :</strong> Généralement sous 24h
+              <strong>{t('contact.form.responseTime')}</strong> {t('contact.form.responseTimeValue')}
             </p>
             <p>
-              <strong>Types de projets :</strong> Développement web, applications React, APIs, consulting technique
+              <strong>{t('contact.form.projectTypes')}</strong> {t('contact.form.projectTypesValue')}
             </p>
           </div>
         </div>

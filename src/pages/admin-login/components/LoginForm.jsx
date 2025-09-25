@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 import Input from '../../../components/ui/Input';
 import Icon from '../../../components/AppIcon';
+import { useLanguage } from '../../../contexts/LanguageContext';
 
 const LoginForm = () => {
+  const { t } = useLanguage();
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -25,15 +27,15 @@ const LoginForm = () => {
     const newErrors = {};
 
     if (!formData.email.trim()) {
-      newErrors.email = 'L\'adresse email est requise';
+      newErrors.email = t('admin.login.emailRequired');
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Format d\'email invalide';
+      newErrors.email = t('admin.login.emailInvalid');
     }
 
     if (!formData.password.trim()) {
-      newErrors.password = 'Le mot de passe est requis';
+      newErrors.password = t('admin.login.passwordRequired');
     } else if (formData.password.length < 8) {
-      newErrors.password = 'Le mot de passe doit contenir au moins 8 caractères';
+      newErrors.password = t('admin.login.passwordMinLength');
     }
 
     setErrors(newErrors);
@@ -60,7 +62,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     if (isLocked) {
-      setErrors({ general: 'Compte temporairement verrouillé. Réessayez dans 15 minutes.' });
+      setErrors({ general: t('admin.login.accountLocked') });
       return;
     }
 
@@ -92,7 +94,7 @@ const LoginForm = () => {
         if (newAttempts >= 5) {
           setIsLocked(true);
           setErrors({ 
-            general: 'Trop de tentatives échouées. Compte verrouillé pour 15 minutes.' 
+            general: t('admin.login.tooManyAttempts')
           });
           
           // Auto unlock after 15 minutes (for demo purposes, using 30 seconds)
@@ -102,7 +104,7 @@ const LoginForm = () => {
           }, 30000);
         } else {
           setErrors({ 
-            general: `Identifiants incorrects. ${5 - newAttempts} tentatives restantes.` 
+            general: t('admin.login.incorrectCredentials', { remaining: 5 - newAttempts })
           });
         }
         
@@ -124,10 +126,10 @@ const LoginForm = () => {
             <Icon name="Shield" size={32} color="white" />
           </div>
           <h1 className="text-2xl font-semibold text-text-primary mb-2">
-            Connexion Administrateur
+            {t('admin.login.title')}
           </h1>
           <p className="text-text-secondary">
-            Accédez au panneau d'administration sécurisé
+            {t('admin.login.subtitle')}
           </p>
         </div>
 
@@ -136,9 +138,9 @@ const LoginForm = () => {
           <div className="flex items-start space-x-3">
             <Icon name="AlertTriangle" size={20} className="text-warning mt-0.5" />
             <div className="text-sm">
-              <p className="font-medium text-warning mb-1">Zone Sécurisée</p>
+              <p className="font-medium text-warning mb-1">{t('admin.login.secureZone')}</p>
               <p className="text-text-secondary">
-                Accès réservé aux administrateurs autorisés uniquement
+                {t('admin.login.adminOnly')}
               </p>
             </div>
           </div>
@@ -158,12 +160,12 @@ const LoginForm = () => {
 
           {/* Email Field */}
           <Input
-            label="Adresse Email"
+            label={t('admin.login.email')}
             type="email"
             name="email"
             value={formData.email}
             onChange={handleInputChange}
-            placeholder="delanktc24@gmail.com"
+            placeholder={t('admin.login.emailPlaceholder')}
             error={errors.email}
             required
             disabled={isLoading || isLocked}
@@ -171,12 +173,12 @@ const LoginForm = () => {
 
           {/* Password Field */}
           <Input
-            label="Mot de Passe"
+            label={t('admin.login.password')}
             type="password"
             name="password"
             value={formData.password}
             onChange={handleInputChange}
-            placeholder="Entrez votre mot de passe"
+            placeholder={t('admin.login.passwordPlaceholder')}
             error={errors.password}
             required
             disabled={isLoading || isLocked}
@@ -203,7 +205,7 @@ const LoginForm = () => {
             iconName="LogIn"
             iconPosition="left"
           >
-            {isLoading ? 'Connexion en cours...' : 'Se Connecter'}
+            {isLoading ? t('admin.login.loggingIn') : t('admin.login.login')}
           </Button>
 
           {/* Forgot Password */}
@@ -214,7 +216,7 @@ const LoginForm = () => {
               className="text-sm text-accent hover:text-accent/80 transition-smooth"
               disabled={isLoading}
             >
-              Mot de passe oublié ?
+              {t('admin.login.forgotPassword')}
             </button>
           </div>
         </form>
@@ -224,7 +226,7 @@ const LoginForm = () => {
           <div className="bg-muted rounded-lg p-4">
             <h3 className="text-sm font-medium text-text-primary mb-2 flex items-center">
               <Icon name="Info" size={16} className="mr-2" />
-              Identifiants de Démonstration
+              {t('admin.login.demoCredentials')}
             </h3>
             <div className="space-y-1 text-xs text-text-secondary">
               <p><strong>Email:</strong> delanktc24@gmail.com</p>

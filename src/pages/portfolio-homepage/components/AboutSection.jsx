@@ -1,27 +1,30 @@
 import React from 'react';
 import Icon from '../../../components/AppIcon';
+import { useLanguage } from '../../../contexts/LanguageContext';
 
 const AboutSection = () => {
+  const { t } = useLanguage();
+  
   const values = [
     {
       icon: "Code2",
-      title: "Code Propre",
-      description: "J'écris du code maintenable, testé et documenté pour assurer la pérennité des projets."
+      title: t('about.values.cleanCode.title'),
+      description: t('about.values.cleanCode.description')
     },
     {
       icon: "Users",
-      title: "Collaboration",
-      description: "Je privilégie le travail d\'équipe et la communication transparente avec tous les stakeholders."
+      title: t('about.values.collaboration.title'),
+      description: t('about.values.collaboration.description')
     },
     {
       icon: "Zap",
-      title: "Performance",
-      description: "J\'optimise chaque application pour offrir une expérience utilisateur fluide et rapide."
+      title: t('about.values.performance.title'),
+      description: t('about.values.performance.description')
     },
     {
       icon: "Shield",
-      title: "Sécurité",
-      description: "La sécurité est au cœur de mes développements, de l'authentification au déploiement."
+      title: t('about.values.security.title'),
+      description: t('about.values.security.description')
     }
   ];
 
@@ -30,10 +33,10 @@ const AboutSection = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            À Propos de Moi
+            {t('about.title')}
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            Découvrez mon parcours, ma philosophie de développement et les valeurs qui guident mon travail
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -41,23 +44,19 @@ const AboutSection = () => {
           {/* About Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-slate-900">Mon Parcours</h3>
+              <h3 className="text-2xl font-semibold text-slate-900">{t('about.myJourney')}</h3>
               <p className="text-slate-600 leading-relaxed">
-                Diplômé d'une école d'ingénieur en informatique, j'ai débuté ma carrière en tant que développeur frontend 
-                avant d'évoluer vers le développement fullstack. Mes 5 années d'expérience m'ont permis de maîtriser l'ensemble de la chaîne de développement web moderne.
+                {t('about.journeyDescription1')}
               </p>
               <p className="text-slate-600 leading-relaxed">
-                Passionné par les nouvelles technologies, je me forme continuellement aux dernières innovations 
-                du secteur. J'ai eu l'opportunité de travailler sur des projets variés, des startups aux grandes 
-                entreprises, ce qui m'a donné une vision complète des enjeux du développement web.
+                {t('about.journeyDescription2')}
               </p>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-2xl font-semibold text-slate-900">Ma Philosophie</h3>
+              <h3 className="text-2xl font-semibold text-slate-900">{t('about.myPhilosophy')}</h3>
               <p className="text-slate-600 leading-relaxed">
-                Je crois fermement que la technologie doit servir l'humain. Chaque ligne de code que j'écris 
-                a pour objectif d'améliorer l'expérience utilisateur tout en respectant les bonnes pratiques de développement. L'innovation technique n'a de sens que si elle apporte une réelle valeur ajoutée.
+                {t('about.philosophyDescription')}
               </p>
             </div>
           </div>
@@ -87,19 +86,19 @@ const AboutSection = () => {
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
           <div className="text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">5+</div>
-            <div className="text-slate-600">Années d'expérience</div>
+            <div className="text-slate-600">{t('about.stats.experience')}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-            <div className="text-slate-600">Projets réalisés</div>
+            <div className="text-slate-600">{t('about.stats.projects')}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
-            <div className="text-slate-600">Technologies maîtrisées</div>
+            <div className="text-slate-600">{t('about.stats.technologies')}</div>
           </div>
           <div className="text-center">
             <div className="text-3xl font-bold text-blue-600 mb-2">100%</div>
-            <div className="text-slate-600">Clients satisfaits</div>
+            <div className="text-slate-600">{t('about.stats.satisfiedClients')}</div>
           </div>
         </div>
       </div>

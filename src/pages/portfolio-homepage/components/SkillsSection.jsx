@@ -1,10 +1,12 @@
 import React from 'react';
 import Icon from '../../../components/AppIcon';
+import { useLanguage } from '../../../contexts/LanguageContext';
 
 const SkillsSection = () => {
+  const { t } = useLanguage();
   const skillCategories = [
     {
-      title: "Frontend",
+      title: t('skills.frontend'),
       icon: "Monitor",
       color: "bg-blue-500",
       skills: [
@@ -17,7 +19,7 @@ const SkillsSection = () => {
       ]
     },
     {
-      title: "Backend",
+      title: t('skills.backend'),
       icon: "Server",
       color: "bg-emerald-500",
       skills: [
@@ -43,7 +45,7 @@ const SkillsSection = () => {
       ]
     },
     {
-      title: "Outils & Autres",
+      title: t('skills.tools'),
       icon: "Wrench",
       color: "bg-orange-500",
       skills: [
@@ -64,14 +66,14 @@ const SkillsSection = () => {
           <span className="text-lg">{skill.icon}</span>
           <span className="font-medium text-slate-700">{skill.name}</span>
         </div>
-        <span className="text-sm text-slate-500">{skill.level}%</span>
+        {/* <span className="text-sm text-slate-500">{skill.level}%</span> */}
       </div>
-      <div className="w-full bg-slate-200 rounded-full h-2">
+      {/* <div className="w-full bg-slate-200 rounded-full h-2">
         <div 
           className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-1000 ease-out"
           style={{ width: `${skill.level}%` }}
         ></div>
-      </div>
+      </div> */}
     </div>
   );
 
@@ -80,10 +82,10 @@ const SkillsSection = () => {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-            Compétences Techniques
+            {t('skills.title')}
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto">
-            Un aperçu de mes compétences techniques et de mon niveau d'expertise dans chaque domaine
+            {t('skills.subtitle')}
           </p>
         </div>
 

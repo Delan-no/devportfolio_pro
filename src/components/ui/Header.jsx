@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Icon from '../AppIcon';
 import Button from './Button';
+import LanguageSelector from './LanguageSelector';
+import { useLanguage } from '../../contexts/LanguageContext';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
+  const { t } = useLanguage();
 
   const navigationItems = [
-    { label: 'Accueil', path: '/portfolio-homepage', icon: 'Home' },
-    { label: 'Projets', path: '/projects-gallery', icon: 'FolderOpen' },
-    { label: 'Expérience', path: '/professional-experience-timeline', icon: 'Briefcase' },
-    { label: 'Blog', path: '/technical-blog', icon: 'BookOpen' },
-    { label: 'Contact', path: '/contact-form', icon: 'Mail' }
+    { label: t('navigation.home'), path: '/portfolio-homepage', icon: 'Home' },
+    { label: t('navigation.projects'), path: '/projects-gallery', icon: 'FolderOpen' },
+    { label: t('navigation.experience'), path: '/professional-experience-timeline', icon: 'Briefcase' },
+    { label: t('navigation.blog'), path: '/technical-blog', icon: 'BookOpen' },
+    { label: t('navigation.contact'), path: '/contact-form', icon: 'Mail' }
   ];
 
   const isActivePath = (path) => {
@@ -67,7 +70,7 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            <nav className="hidden md:flex items-center space-x-6">
               {navigationItems.map((item) => (
                 <Link
                   key={item.path}
@@ -81,6 +84,9 @@ const Header = () => {
                   <span>{item.label}</span>
                 </Link>
               ))}
+              
+              {/* Language Selector */}
+              <LanguageSelector />
             </nav>
 
             {/* Mobile Menu Button */}
@@ -120,15 +126,22 @@ const Header = () => {
                 ))}
               </div>
               
+              {/* Language Selector Mobile */}
+              <div className="mt-6 pt-6 border-t border-border">
+                <div className="px-4">
+                  <LanguageSelector variant="simple" />
+                </div>
+              </div>
+              
               {/* Admin Access */}
-              <div className="mt-8 pt-6 border-t border-border">
+              <div className="mt-6 pt-6 border-t border-border">
                 <Link
                   to="/admin-login"
                   onClick={closeMobileMenu}
                   className="flex items-center space-x-3 px-4 py-3 rounded-lg text-base font-medium text-text-secondary hover:text-primary hover:bg-muted transition-smooth"
                 >
                   <Icon name="Settings" size={20} />
-                  <span>Administration</span>
+                  <span>{t('navigation.administration')}</span>
                 </Link>
               </div>
             </nav>

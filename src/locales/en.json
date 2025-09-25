@@ -1,0 +1,191 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "confirm": "Confirm",
+    "save": "Save",
+    "edit": "Edit",
+    "delete": "Delete",
+    "close": "Close",
+    "view": "View",
+    "download": "Download",
+    "contact": "Contact",
+    "readMore": "Read more",
+    "readLess": "Read less",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "navigation": {
+    "home": "Home",
+    "projects": "Projects",
+    "experience": "Experience",
+    "blog": "Blog",
+    "contact": "Contact",
+    "administration": "Administration",
+    "portfolio": "Portfolio"
+  },
+  "hero": {
+    "name": "Délanno KOTCHO",
+    "title": "Senior Fullstack Developer",
+    "description": "Passionate about creating modern and performant web applications, I transform your ideas into innovative digital solutions with 5 years of experience in React, Node.js development and cloud technologies.",
+    "downloadCV": "Download CV",
+    "contactMe": "Contact Me",
+    "linkedinProfile": "LinkedIn Profile",
+    "githubProfile": "GitHub Profile",
+    "twitterProfile": "X Profile"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Discover my journey, my development philosophy and the values that guide my work",
+    "myJourney": "My Journey",
+    "journeyDescription1": "Graduated from an engineering school in computer science, I started my career as a frontend developer before evolving towards fullstack development. My 5 years of experience have allowed me to master the entire modern web development chain.",
+    "journeyDescription2": "Passionate about new technologies, I continuously train myself on the latest innovations in the sector. I have had the opportunity to work on various projects, from startups to large companies, which has given me a complete vision of web development challenges.",
+    "myPhilosophy": "My Philosophy",
+    "philosophyDescription": "I firmly believe that technology must serve humanity. Every line of code I write aims to improve the user experience while respecting development best practices. Technical innovation only makes sense if it brings real added value.",
+    "values": {
+      "cleanCode": {
+        "title": "Clean Code",
+        "description": "I write maintainable, tested and documented code to ensure project sustainability."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "I prioritize teamwork and transparent communication with all stakeholders."
+      },
+      "performance": {
+        "title": "Performance",
+        "description": "I optimize every application to offer a smooth and fast user experience."
+      },
+      "security": {
+        "title": "Security",
+        "description": "Security is at the heart of my developments, from authentication to deployment."
+      }
+    },
+    "stats": {
+      "experience": "Years of experience",
+      "projects": "Projects completed",
+      "technologies": "Technologies mastered",
+      "satisfiedClients": "Satisfied clients"
+    }
+  },
+  "skills": {
+    "title": "Technical Skills",
+    "subtitle": "An overview of my technical skills and expertise level in each domain",
+    "frontend": "Frontend",
+    "backend": "Backend",
+    "tools": "Tools",
+    "languages": "Languages"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Discover some of the projects I have worked on",
+    "viewProject": "View project",
+    "viewCode": "View code",
+    "technologies": "Technologies",
+    "status": "Status",
+    "description": "Description",
+    "noProjects": "No projects found",
+    "filter": {
+      "all": "All",
+      "web": "Web",
+      "mobile": "Mobile",
+      "api": "API",
+      "completed": "Completed",
+      "inProgress": "In Progress"
+    }
+  },
+  "experience": {
+    "title": "Professional Experience",
+    "subtitle": "My journey and the companies I have worked for",
+    "current": "Current",
+    "duration": "Duration",
+    "responsibilities": "Responsibilities",
+    "achievements": "Achievements",
+    "technologies": "Technologies used"
+  },
+  "blog": {
+    "title": "Technical Blog",
+    "subtitle": "Articles about web development, new technologies and best practices",
+    "readMore": "Read article",
+    "publishedOn": "Published on",
+    "readingTime": "min read",
+    "tags": "Tags",
+    "noArticles": "No articles found",
+    "featured": "Featured article",
+    "recent": "Recent articles"
+  },
+  "contact": {
+    "title": "Contact me",
+    "subtitle": "Have a project idea? Don't hesitate to contact me!",
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent successfully!",
+      "error": "Error sending message",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "your.email@example.com",
+      "subjectPlaceholder": "Subject of your message",
+      "messagePlaceholder": "Describe your project or request...",
+      "nameRequired": "Name is required",
+      "nameMinLength": "Name must contain at least 2 characters",
+      "emailRequired": "Email is required",
+      "emailInvalid": "Invalid email format",
+      "subjectRequired": "Subject is required",
+      "subjectMinLength": "Subject must contain at least 5 characters",
+      "messageRequired": "Message is required",
+      "messageMinLength": "Message must contain at least 20 characters",
+      "messageMaxLength": "Message cannot exceed 1000 characters",
+      "submitError": "An error occurred while sending. Please try again.",
+      "successMessage": "Thank you for your message. I will respond as soon as possible, usually within 24h.",
+      "sendAnother": "Send another message",
+      "responseTime": "Response time:",
+      "responseTimeValue": "Usually within 24h",
+      "projectTypes": "Project types:",
+      "projectTypesValue": "Web development, React applications, APIs, technical consulting",
+      "charactersCount": "characters"
+    },
+    "info": {
+      "email": "Email",
+      "phone": "Phone",
+      "location": "Location",
+      "availability": "Availability"
+    }
+  },
+  "admin": {
+    "login": {
+      "title": "Admin Login",
+      "subtitle": "Access the secure administration panel",
+      "email": "Email Address",
+      "password": "Password",
+      "login": "Login",
+      "loggingIn": "Logging in...",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot password?",
+      "emailRequired": "Email address is required",
+      "emailInvalid": "Invalid email format",
+      "passwordRequired": "Password is required",
+      "passwordMinLength": "Password must contain at least 8 characters",
+      "accountLocked": "Account temporarily locked. Try again in 15 minutes.",
+      "tooManyAttempts": "Too many failed attempts. Account locked for 15 minutes.",
+      "incorrectCredentials": "Incorrect credentials. {{remaining}} attempts remaining.",
+      "secureZone": "Secure Zone",
+      "adminOnly": "Access restricted to authorized administrators only",
+      "demoCredentials": "Demo Credentials",
+      "emailPlaceholder": "delanktc24@gmail.com",
+      "passwordPlaceholder": "Enter your password"
+    }
+  },
+  "language": {
+    "french": "Français",
+    "english": "English",
+    "selectLanguage": "Select language"
+  }
+}
+
+
